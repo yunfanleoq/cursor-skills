@@ -1,0 +1,32 @@
+# 凭据与本地配置（切勿提交）
+.cursor/
+wechat-publish.json
+config/wechat-publish.json
+wechat-agent-server/config.json
+.env
+.env.*
+
+# 运行时数据
+wechat-agent-server/data/
+*.log
+
+# 用户文章内容（自行创建）
+articles/*
+!articles/.gitkeep
+!articles/diagrams/
+articles/diagrams/*
+!articles/diagrams/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
+
+# 封面压缩临时文件
+*.thumb.jpg

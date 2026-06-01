@@ -1,0 +1,121 @@
+# 软著申报项目配置 — 复制到项目根 soft-copyright/scope.yaml 后修改
+
+software:
+  full_name: "待填写-软件全称"          # 与证书、页眉完全一致
+  short_name: ""                        # 可选
+  version: "V1.0"                       # 与申请表一致；是否带 V 以申请表为准
+  category_hint: "30200"                # 行业应用软件（见 reference.md）
+
+applicant:
+  type: enterprise                      # enterprise | institution | individual
+  name: "待填写-单位全称"
+  id_type: "营业执照"
+  id_number: ""
+  address: ""
+  contact: ""
+  phone: ""
+  email: ""
+
+ownership:
+  type: independent                     # independent | cooperative | commissioned | task | derivative | succession
+  # cooperative | commissioned | task 时填写合同路径说明
+  contract_note: ""
+
+development:
+  completed_date: "YYYY-MM-DD"          # 待确认
+  published: false
+  first_publish_date: ""
+  hardware_dev: "x86_64 PC，8GB 内存以上"
+  hardware_run: "服务器 4 核 8GB 以上或同等 PC"
+  os_dev: "Windows 10/11 或 Linux"
+  os_run: "Windows Server / Linux；浏览器 Chrome/Edge 最新版"
+  dev_tools: "Python 3.12, Node.js 20+, VS Code"
+  support_env: "PostgreSQL 15+ 或 SQLite 3"
+  languages:
+    - Python
+    - TypeScript
+    - Vue
+  field: "知识产权服务"
+  purpose: "待填写-一句话用途"
+
+# 版权中心第 4 步「软件功能与特点」（见 application-form-spec.md）
+form_fields:
+  hardware_dev: "x86_64 PC，双核及以上，内存8GB，硬盘50GB"
+  hardware_run: "服务器x86_64 4核8GB以上；客户端PC 8GB"
+  os_dev: "Windows 11"
+  dev_tools: "Python3.12、Node.js20、Cursor IDE"
+  os_run: "Windows Server/Linux；Chrome/Edge 120+"
+  support_env: "SQLite或PostgreSQL；Chrome/Edge浏览器"
+  languages:
+    - Python
+    - TypeScript
+    - Vue
+    - HTML
+  purpose: "待填写-开发目的（50字内）"
+  field: "待填写-面向领域"
+  main_functions: |
+    1. （待填写主要功能）
+  technical_features: |
+    （待填写技术特点，100～300字）
+
+source_code:
+  extensions:
+    - py
+    - vue
+    - ts
+    - js
+  exclude_dirs:
+    - node_modules
+    - .venv
+    - venv
+    - dist
+    - build
+    - __pycache__
+    - .git
+    - coverage
+    - .storage
+    - alembic/versions
+    - data/kb_seed
+    - data/samples
+    - eval/reports
+  exclude_globs:
+    - "*.min.js"
+    - "*.lock"
+    - "package-lock.json"
+    - "pnpm-lock.yaml"
+  lines_per_page: 50
+  pages_front: 30
+  pages_back: 30
+  # 文件排序：优先体现核心业务
+  priority_paths:
+    - backend/app/main.py
+    - backend/app/services/woa_pipeline.py
+    - backend/app/agents
+    - backend/app/services/doc_parser
+    - backend/app/api
+    - frontend/src/views
+    - frontend/src/components
+
+document:
+  type: "操作说明书"
+  lines_per_page: 30
+  pages_front: 30
+  pages_back: 30
+
+output:
+  dir: "soft-copyright/output"
+
+pdf:
+  # 页眉页脚（与申请表完全一致）
+  source_header: "待填写-软件全称 V1.0"      # 页眉左侧，可不含「源程序」
+  source_label: "源程序"
+  manual_header: "待填写-软件全称 V1.0 操作手册"
+  source_filename: "待填写-软件全称V1.0-源程序.pdf"
+  manual_filename: "待填写-软件全称V1.0-操作手册.pdf"
+  cjk_font_path: ""                          # 空则自动用 Windows msyh.ttc
+
+redaction:
+  patterns:
+    - "sk-[a-zA-Z0-9]+"
+    - "api[_-]?key"
+  replace_with: "REDACTED"

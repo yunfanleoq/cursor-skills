@@ -1,0 +1,7 @@
+# 核心 PDF / 配置
+fpdf2>=2.7.0
+pyyaml>=6.0
+pillow>=10.0
+
+# 操作手册 Playwright 自动化（可选）
+playwright>=1.40.0

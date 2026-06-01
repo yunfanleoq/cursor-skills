@@ -1,0 +1,19 @@
+{
+  "host": "0.0.0.0",
+  "port": 8780,
+  "api_key": "change-me-to-a-long-random-secret",
+  "wechat_config": "~/.cursor/wechat-publish.json",
+  "schedules": [
+    {
+      "id": "weekly-example",
+      "enabled": false,
+      "cron": "0 9 * * 1",
+      "title": "示例文章标题",
+      "digest": "",
+      "markdown_path": "articles/example.md",
+      "thumb_path": "articles/diagrams/cover.png",
+      "publish": false,
+      "generate_article": false
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>软著 R11 申请表填写助手</title>
+  <style>
+    :root {
+      --bg: #f4f6fb; --card: #fff; --text: #1a1f36; --muted: #6b7280;
+      --primary: #1e3a8a; --ok: #059669; --danger: #dc2626; --border: #e5e7eb; --chip: #eff6ff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    header { background: linear-gradient(135deg, #1e3a8a, #2563eb); color: #fff; padding: 1.5rem 2rem 2rem; }
+    header h1 { margin: 0 0 .25rem; font-size: 1.35rem; font-weight: 600; }
+    header p { margin: 0; opacity: .9; font-size: .92rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+    .meta span { background: rgba(255,255,255,.15); padding: .25rem .65rem; border-radius: 999px; font-size: .82rem; }
+    main { max-width: 920px; margin: -1rem auto 2rem; padding: 0 1rem; }
+    .tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+    .tab { border: 1px solid var(--border); background: var(--card); padding: .45rem .75rem; border-radius: 8px; cursor: pointer; font-size: .85rem; }
+    .tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+    button { border: 1px solid var(--border); background: var(--card); color: var(--text); padding: .45rem .85rem; border-radius: 8px; cursor: pointer; font-size: .88rem; }
+    button.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .status-banner { padding: .75rem 1rem; border-radius: 10px; margin-bottom: 1rem; font-size: .9rem; }
+    .status-banner.ok { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .status-banner.warn { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+    .panel { display: none; } .panel.active { display: block; }
+    .group-title { font-size: .78rem; letter-spacing: .06em; color: var(--muted); margin: 1.25rem 0 .5rem; font-weight: 600; }
+    .field-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: .75rem; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    .field-head { display: flex; justify-content: space-between; align-items: flex-start; gap: .75rem; margin-bottom: .5rem; }
+    .field-head h3 { margin: 0; font-size: .95rem; font-weight: 600; }
+    .badge { font-size: .75rem; padding: .15rem .5rem; border-radius: 999px; white-space: nowrap; }
+    .badge.ok { background: #d1fae5; color: var(--ok); }
+    .badge.over { background: #fee2e2; color: var(--danger); }
+    .field-value { background: #f9fafb; border: 1px solid var(--border); border-radius: 8px; padding: .65rem .75rem; white-space: pre-wrap; word-break: break-word; font-size: .92rem; min-height: 2.2rem; }
+    .field-value.number { font-size: 1.1rem; font-weight: 600; color: var(--primary); }
+    .chips { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .5rem; }
+    .chip { background: var(--chip); color: var(--primary); padding: .2rem .55rem; border-radius: 6px; font-size: .82rem; border: 1px solid #bfdbfe; }
+    .hint { color: var(--muted); font-size: .8rem; margin-top: .35rem; }
+    .actions { display: flex; gap: .4rem; margin-top: .55rem; }
+    .toast { position: fixed; bottom: 1.25rem; right: 1.25rem; background: #111827; color: #fff; padding: .6rem 1rem; border-radius: 8px; font-size: .85rem; opacity: 0; transition: opacity .2s; pointer-events: none; }
+    .toast.show { opacity: 1; }
+    footer { text-align: center; color: var(--muted); font-size: .78rem; padding: 1rem 0 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">软著 R11 申请表填写助手</h1>
+    <p>对照版权中心在线表单逐步复制 · 对应 register.ccopyright.com.cn/r11.html</p>
+    <div class="meta" id="meta"></div>
+  </header>
+  <main>
+    <div class="tabs" id="tabs"></div>
+    <div class="toolbar">
+      <button class="primary" id="copyAll">复制当前步骤</button>
+      <button id="openForm">打开版权中心表单</button>
+      <button id="exportJson">下载 JSON</button>
+    </div>
+    <div id="status" class="status-banner ok"></div>
+    <div id="panels"></div>
+  </main>
+  <div class="toast" id="toast">已复制</div>
+  <footer>由 soft-copyright-application Skill 生成 · 提交前请人工核对</footer>
+  <script>
+    const DATA = /*__FORM_DATA__*/ null;
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 1600);
+    }
+    async function copyText(text) { await navigator.clipboard.writeText(text); toast('已复制到剪贴板'); }
+
+    function badgeText(field) {
+      if (field.min && field.max) return `${field.length}/${field.min}-${field.max} 字`;
+      if (field.max) return `${field.length}/${field.max} 字`;
+      return `${field.length} 字`;
+    }
+
+    function displayValue(field) {
+      if (field.type === 'languages') return field.value.text || field.value.list.join('、');
+      if (field.type === 'tags') return (field.value || []).join('、');
+      if (field.type === 'number') return String(field.value);
+      return field.display || String(field.value || '');
+    }
+
+    function renderStepPanel(step) {
+      const panel = document.createElement('div');
+      panel.className = 'panel';
+      panel.dataset.step = step.step;
+      if (step.fields) {
+        for (const f of step.fields) {
+          const card = document.createElement('div');
+          card.className = 'field-card';
+          const val = f.value || '';
+          card.innerHTML = `
+            <div class="field-head"><h3>${f.label}</h3></div>
+            <div class="field-value">${val}</div>
+            <div class="actions"><button type="button" data-copy="${encodeURIComponent(val)}">复制</button></div>`;
+          panel.appendChild(card);
+        }
+      }
+      if (step.note) {
+        const note = document.createElement('div');
+        note.className = 'status-banner ok';
+        note.textContent = step.note;
+        panel.appendChild(note);
+      }
+      return panel;
+    }
+
+    function renderFeaturesPanel() {
+      const panel = document.createElement('div');
+      panel.className = 'panel';
+      panel.dataset.step = 4;
+      let lastGroup = '';
+      for (const field of DATA.fields) {
+        if (field.group !== lastGroup) {
+          lastGroup = field.group;
+          const gt = document.createElement('div');
+          gt.className = 'group-title';
+          gt.textContent = field.group;
+          panel.appendChild(gt);
+        }
+        const card = document.createElement('div');
+        card.className = 'field-card';
+        const badgeClass = field.ok === false ? 'over' : 'ok';
+        let body = '';
+        if (field.type === 'languages' || field.type === 'tags') {
+          const list = field.type === 'languages' ? field.value.list : field.value;
+          const chips = (list || []).map(l => `<span class="chip">${l}</span>`).join('');
+          body = `<div class="chips">${chips}</div>`;
+          if (field.type === 'languages') body += `<div class="field-value">${field.value.text || ''}</div>`;
+        } else if (field.type === 'textarea') {
+          body = `<div class="field-value">${displayValue(field)}</div>`;
+        } else if (field.type === 'number') {
+          body = `<div class="field-value number">${displayValue(field)} <span style="font-weight:400;font-size:.85rem;color:#6b7280">行</span></div>`;
+        } else {
+          body = `<div class="field-value">${displayValue(field)}</div>`;
+        }
+        card.innerHTML = `
+          <div class="field-head"><h3>${field.label}</h3><span class="badge ${badgeClass}">${badgeText(field)}</span></div>
+          ${body}
+          <div class="hint">版权中心：${field.label}</div>
+          <div class="actions"><button type="button" data-copy="${encodeURIComponent(displayValue(field))}">复制</button></div>`;
+        panel.appendChild(card);
+      }
+      return panel;
+    }
+
+    let activeStep = 4;
+
+    function setActive(step) {
+      activeStep = step;
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', +t.dataset.step === step));
+      document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', +p.dataset.step === step));
+    }
+
+    function render() {
+      if (!DATA) {
+        document.getElementById('status').className = 'status-banner warn';
+        document.getElementById('status').textContent = '未加载数据。请先运行 generate_application_form.py';
+        return;
+      }
+      const sw = DATA.software || {};
+      document.getElementById('title').textContent = `${sw.full_name || '软件'} ${sw.version || ''} — R11 填写助手`;
+      document.getElementById('meta').innerHTML = [
+        `<span>生成：${DATA.generated_at || '-'}</span>`,
+        `<span>源程序：${DATA.source_stats?.effective_lines?.toLocaleString() || 0} 行</span>`,
+        `<span>著作权人：${DATA.applicant?.name || '-'}</span>`,
+      ].join('');
+
+      const status = document.getElementById('status');
+      if (DATA.all_ok) {
+        status.className = 'status-banner ok';
+        status.textContent = '✓ 第 4 步字段均在字数限制内，可直接复制粘贴。';
+      } else {
+        status.className = 'status-banner warn';
+        const bad = DATA.fields.filter(f => !f.ok).map(f => f.label);
+        status.textContent = `⚠ 请调整：${bad.join('、')}`;
+      }
+
+      const tabs = document.getElementById('tabs');
+      const panels = document.getElementById('panels');
+      tabs.innerHTML = '';
+      panels.innerHTML = '';
+
+      for (const step of (DATA.steps || [])) {
+        const tab = document.createElement('button');
+        tab.className = 'tab' + (step.step === 4 ? ' active' : '');
+        tab.dataset.step = step.step;
+        tab.textContent = `第${step.step}步 ${step.title}`;
+        tab.onclick = () => setActive(step.step);
+        tabs.appendChild(tab);
+
+        const panel = step.step === 4 ? renderFeaturesPanel() : renderStepPanel(step);
+        panel.classList.toggle('active', step.step === 4);
+        panels.appendChild(panel);
+      }
+
+      panels.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.addEventListener('click', () => copyText(decodeURIComponent(btn.dataset.copy)));
+      });
+    }
+
+    document.getElementById('copyAll').addEventListener('click', () => {
+      if (!DATA) return;
+      if (activeStep === 4) {
+        copyText(DATA.fields.map(f => `${f.label}：\n${displayValue(f)}`).join('\n\n'));
+        return;
+      }
+      const step = (DATA.steps || []).find(s => s.step === activeStep);
+      if (step?.fields) copyText(step.fields.map(f => `${f.label}：${f.value}`).join('\n'));
+    });
+
+    document.getElementById('openForm').addEventListener('click', () => {
+      window.open(DATA.form_url || 'https://register.ccopyright.com.cn/r11.html', '_blank');
+    });
+
+    document.getElementById('exportJson').addEventListener('click', () => {
+      if (!DATA) return;
+      const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'application-form-fields.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    render();
+  </script>
+</body>
+</html>
