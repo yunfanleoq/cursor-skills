@@ -1,0 +1,25 @@
+{
+  "description": "Anthropic OpenSkills — 通过 install 脚本拉取，不可纳入本仓库分发",
+  "source": "anthropics/skills",
+  "install": "./scripts/install-openskills.sh",
+  "skills": [
+    "algorithmic-art",
+    "brand-guidelines",
+    "canvas-design",
+    "claude-api",
+    "doc-coauthoring",
+    "docx",
+    "frontend-design",
+    "internal-comms",
+    "mcp-builder",
+    "pdf",
+    "pptx",
+    "skill-creator",
+    "slack-gif-creator",
+    "theme-factory",
+    "web-artifacts-builder",
+    "webapp-testing",
+    "xlsx"
+  ],
+  "license_note": "Anthropic LICENSE.txt 禁止再分发；各项目本地 .agent/skills/ 安装，加入 .gitignore"
+}

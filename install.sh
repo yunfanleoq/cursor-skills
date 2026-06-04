@@ -8,9 +8,12 @@ DEST_ROOT="${HOME}/.cursor/skills"
 SKILL="${1:-all}"
 
 ALL_SKILLS=(
+  baoyu-slide-deck
   frontend-code-review
   jeecg-e2e-doc-capture
   jeecg-webapp-security-scan
+  ppt-master
+  pptx-convert
   soft-copyright-application
   wechat-article-publish
 )

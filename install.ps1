@@ -9,9 +9,12 @@ $SkillsRoot = Join-Path $RepoRoot "skills"
 $DestRoot = Join-Path $env:USERPROFILE ".cursor\skills"
 
 $AllSkills = @(
+    "baoyu-slide-deck",
     "frontend-code-review",
     "jeecg-e2e-doc-capture",
     "jeecg-webapp-security-scan",
+    "ppt-master",
+    "pptx-convert",
     "soft-copyright-application",
     "wechat-article-publish"
 )

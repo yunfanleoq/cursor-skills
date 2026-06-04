@@ -11,8 +11,11 @@
 | [soft-copyright-application](skills/soft-copyright-application/) | 中国软件著作权登记材料（源程序 PDF、操作手册、申请表） | 软著、鉴别材料 PDF、操作说明书 |
 | [wechat-article-publish](skills/wechat-article-publish/) | 微信公众号文章整理与远程/本地发布 | 公众号、mp.weixin.qq.com、wechat.yclub.xin |
 | [frontend-code-review](skills/frontend-code-review/) | 前端代码审查清单（.tsx/.ts/.js） | code review、前端审查 |
+| [baoyu-slide-deck](skills/baoyu-slide-deck/) | 长文档拆 PPT、自动配图、导出 PPTX/PDF | 做 PPT、述职汇报、slide deck |
+| [ppt-master](skills/ppt-master/) | 多模板、自然语言改单页、批量配色，原生可编辑 PPTX | 从 PDF/MD 生成 PPT、改配色 |
+| [pptx-convert](skills/pptx-convert/) | 修改已有 PPTX、增删页、提取内容复用模板 | 改 PPT、增删幻灯片、OOXML |
 
-> **未收录**：`pptx` 技能来自 Anthropic，[LICENSE.txt](https://www.anthropic.com/) 禁止再分发，故本仓库不包含。请通过 Cursor 内置技能或 Anthropic 官方渠道获取。
+> **OpenSkills（Anthropic）**：`pptx`/`docx`/`pdf` 等 **不可纳入本仓库**（专有许可）。请用 [scripts/install-openskills.sh](scripts/install-openskills.sh) 在项目中安装，见 [manifest/openskills.json](manifest/openskills.json)。
 
 ## 快速安装
 
@@ -60,6 +63,9 @@ py -3.12 -m pip install -r skills/soft-copyright-application/requirements.txt
 # 公众号
 py -3.12 -m pip install -r skills/wechat-article-publish/requirements.txt
 py -3.12 -m playwright install chromium
+
+# PPT Master（生成/编辑 PPTX 脚本）
+pip install -r skills/ppt-master/requirements.txt
 ```
 
 ## 仓库结构
@@ -68,8 +74,15 @@ py -3.12 -m playwright install chromium
 cursor-skills/
 ├── README.md
 ├── install.ps1 / install.sh      # 一键安装到 ~/.cursor/skills/
+├── scripts/
+│   └── install-openskills.sh     # 项目内安装 Anthropic OpenSkills（不可入库）
+├── manifest/
+│   └── openskills.json           # OpenSkills 清单与说明
 ├── publish-github.ps1            # 维护者推送脚本
 ├── skills/
+│   ├── baoyu-slide-deck/
+│   ├── ppt-master/
+│   ├── pptx-convert/
 │   ├── jeecg-webapp-security-scan/
 │   ├── jeecg-e2e-doc-capture/
 │   ├── soft-copyright-application/

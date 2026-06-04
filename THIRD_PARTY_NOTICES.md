@@ -1,14 +1,27 @@
 # 第三方与许可说明
 
-## 未收录：pptx
+## 未收录（不可再分发）：Anthropic OpenSkills
 
-`~/.cursor/skills/pptx/` 来自 Anthropic，其 `LICENSE.txt` 明确禁止：
+`anthropics/skills` 中的 `pptx`、`docx`、`pdf`、`xlsx` 等技能，其 `LICENSE.txt` 明确禁止再分发与衍生。因此 **本仓库不包含这些技能文件**。
 
-- 从服务中提取并在外部保留副本
-- 再生产、分发、转授权给第三方
-- 基于这些材料创建衍生作品
+在新机器或项目中安装：
 
-因此 **本仓库不包含 pptx 技能**。如需使用，请通过 Cursor 内置技能或 Anthropic 官方渠道。
+```bash
+npm install -g openskills
+./scripts/install-openskills.sh /path/to/your-project
+```
+
+技能清单见 [manifest/openskills.json](manifest/openskills.json)。安装结果位于项目 `.agent/skills/`，请加入 `.gitignore`。
+
+## 已收录：第三方 PPT 技能
+
+| 目录 | 上游 | 许可 |
+|------|------|------|
+| `skills/baoyu-slide-deck/` | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 见上游 LICENSE |
+| `skills/ppt-master/` | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | MIT |
+| `skills/pptx-convert/` | [claude-office-skills/skills](https://github.com/claude-office-skills/skills) `pptx-manipulation` | MIT |
+
+各子目录 `SOURCE.md` 记录同步方式。
 
 ## 子目录独立许可
 
