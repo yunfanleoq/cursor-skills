@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1280" height="720" viewBox="0 0 1280 720"><defs><filter id="fx1" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="33.33" stdDeviation="26.67" flood-color="#1A3260" flood-opacity="0.25"/></filter><linearGradient id="ggrad1" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0" stop-color="#4876CD" stop-opacity="0.25"/><stop offset="1" stop-color="#C2D1EE" stop-opacity="0.2"/></linearGradient><filter id="fx2" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="33.33" stdDeviation="26.67" flood-color="#1A3260" flood-opacity="0.25"/></filter><linearGradient id="ggrad2" x1="0.1585" y1="1.0915" x2="0.8415" y2="-0.0915"><stop offset="0.54" stop-color="#1A3260" stop-opacity="0.7"/><stop offset="0" stop-color="#1A3260" stop-opacity="0.3"/><stop offset="0.81" stop-color="#1A3260" stop-opacity="0.8"/><stop offset="1" stop-color="#1A3260" stop-opacity="0.4"/></linearGradient><filter id="fx3" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#1A3260" flood-opacity="0.2"/></filter><linearGradient id="ggrad3" x1="0.2808" y1="1.1022" x2="0.7192" y2="-0.1022"><stop offset="0.54" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.19" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.81" stop-color="#1A3260" stop-opacity="0.4"/><stop offset="1" stop-color="#1A3260" stop-opacity="0.2"/></linearGradient><filter id="fx4" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#1A3260" flood-opacity="0.2"/></filter><linearGradient id="ggrad4" x1="0.2808" y1="1.1022" x2="0.7192" y2="-0.1022"><stop offset="0.54" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.19" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.81" stop-color="#1A3260" stop-opacity="0.3"/><stop offset="1" stop-color="#1A3260" stop-opacity="0.2"/></linearGradient><filter id="fx5" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#1A3260" flood-opacity="0.2"/></filter><linearGradient id="ggrad5" x1="0.2808" y1="1.1022" x2="0.7192" y2="-0.1022"><stop offset="0.54" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.19" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.81" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="1" stop-color="#1A3260" stop-opacity="0.2"/></linearGradient><filter id="fx6" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#1A3260" flood-opacity="0.2"/></filter><linearGradient id="ggrad6" x1="0.2808" y1="1.1022" x2="0.7192" y2="-0.1022"><stop offset="0.54" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.19" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="0.81" stop-color="#1A3260" stop-opacity="0.2"/><stop offset="1" stop-color="#1A3260" stop-opacity="0.2"/></linearGradient><filter id="fx7" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#1A3260" flood-opacity="0.2"/></filter><linearGradient id="ggrad7" x1="0.3994" y1="1.0704" x2="0.6006" y2="-0.0704"><stop offset="0" stop-color="#4876CD"/><stop offset="0.81" stop-color="#FFFFFF" stop-opacity="0.8"/><stop offset="1" stop-color="#4876CD"/></linearGradient><filter id="fx8" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="23.57" dy="23.57" stdDeviation="47.33" flood-color="#1A3260" flood-opacity="0.1"/></filter><linearGradient id="ggrad8" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0.54" stop-color="#1A3260"/><stop offset="0" stop-color="#4876CD"/><stop offset="0.81" stop-color="#1A3260"/><stop offset="1" stop-color="#1A3260"/></linearGradient><filter id="fx9" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#1A3260" flood-opacity="0.3"/></filter><linearGradient id="ggrad9" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0.54" stop-color="#1A3260"/><stop offset="0" stop-color="#4876CD"/><stop offset="0.81" stop-color="#1A3260"/><stop offset="1" stop-color="#1A3260"/></linearGradient><filter id="fx10" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#1A3260" flood-opacity="0.3"/></filter><linearGradient id="ggrad10" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0.54" stop-color="#1A3260"/><stop offset="0" stop-color="#4876CD"/><stop offset="0.81" stop-color="#1A3260"/><stop offset="1" stop-color="#1A3260"/></linearGradient><filter id="fx11" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#1A3260" flood-opacity="0.3"/></filter><marker id="marrow1" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth"><circle cx="5" cy="5" r="4" fill="#C2D1EE"/></marker><marker id="marrow2" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth"><circle cx="5" cy="5" r="4" fill="#C2D1EE"/></marker><marker id="marrow3" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><circle cx="5" cy="5" r="4" fill="#AFC6FF"/></marker></defs><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+<g id="master-shape-8" data-name="图片 7">
+<svg x="-1.86" y="478.61" width="1280" height="241.39" viewBox="0.1749 0.55911 0.8251 0.41126" preserveAspectRatio="none"><image href="assets/image3.png" x="0" y="0" width="1" height="1" preserveAspectRatio="none"/></svg>
+</g>
+<g id="master-shape-7" data-name="图片 6">
+<svg x="1.86" y="0" width="404.34" height="720" viewBox="0 0 0.42131 1" preserveAspectRatio="none"><image href="assets/image4.png" x="0" y="0" width="1" height="1" preserveAspectRatio="none"/></svg>
+</g>
+<g id="master-shape-9" data-name="Rectangle 8">
+<rect x="46.88" y="96.88" width="388.8" height="9.97" fill="#1A3260" stroke="none" stroke-width="1"/>
+</g>
+<g id="master-shape-10" data-name="Rectangle 9">
+<rect x="844.32" y="96.5" width="388.8" height="10.35" fill="#20A8DF" stroke="none" stroke-width="1"/>
+</g>
+<g id="master-shape-11" data-name="Rectangle 10">
+<rect x="445.34" y="96.88" width="388.8" height="9.6" fill="#4590B8" stroke="none" stroke-width="1"/>
+</g>
+<g id="master-shape-15" data-name="图片 14">
+<image href="assets/image5.png" x="999.11" y="7.53" width="234.01" height="86.67" preserveAspectRatio="none"/>
+</g>
+<g id="shape-2" data-name="Rectangle 1">
+<rect x="0.03" y="0" width="1279.68" height="6.72" fill="#C9A227" stroke="none" stroke-width="1"/>
+</g>
+<g id="shape-3" data-name="TextBox 2">
+<rect x="56.37" y="111.2" width="542.8" height="54.8" fill="none"/>
+<text x="65.97" y="147.73" text-anchor="start" xml:space="preserve" font-family="&quot;PingFang SC&quot;, sans-serif" font-size="37.33" fill="#003057" font-weight="bold"><tspan fill="#003057" font-size="37.33" font-weight="bold">知识系统：从培训到资产的飞轮</tspan></text>
+</g>
+<g id="shape-5" data-name="TextBox 4">
+<rect x="571.43" y="655.8" width="625.4" height="38.4" fill="none"/>
+<text x="581.03" y="681" text-anchor="start" xml:space="preserve" font-family="&quot;PingFang SC&quot;, sans-serif" font-size="24" fill="#003057" font-weight="bold"><tspan fill="#003057" font-size="24" font-weight="bold">知识飞轮闭环：标准化输出 × 经验沉淀 × 能力复制</tspan></text>
+</g>
+<g id="shape-7" data-name="TextBox 6">
+<rect x="1191.23" y="672" width="56.8" height="27.33" fill="none"/>
+<text x="1238.43" y="689.27" text-anchor="end" xml:space="preserve" font-family="&quot;PingFang SC&quot;, sans-serif" font-size="14.67" fill="#646464"><tspan fill="#646464" font-size="14.67">5 / 11</tspan></text>
+</g>
+<g id="shape-211" data-name="椭圆 210">
+<ellipse cx="642.25" cy="403.28" rx="220.43" ry="220.43" fill="none" stroke-width="3.333" stroke="#1A3260" stroke-opacity="0.25" stroke-dasharray="1 3"/>
+</g>
+<g id="shape-212" data-name="任意多边形 2">
+<path d="M 451.7 406.69 L 832.8 406.69 L 832.8 407 C 827.7 507.81 744.33 587.97 642.25 587.97 C 540.17 587.97 456.8 507.81 451.7 407 L 451.7 406.69 Z" stroke="none" fill="#1A3260" stroke-width="1" filter="url(#fx1)"/>
+</g>
+<g id="shape-213" data-name="任意多边形 2">
+<path d="M 451.7 406.69 L 832.8 406.69 L 832.8 407 C 827.7 507.81 744.33 587.97 642.25 587.97 C 540.17 587.97 456.8 507.81 451.7 407 L 451.7 406.69 Z" fill="url(#ggrad1)" stroke="none" stroke-width="1" filter="url(#fx2)"/>
+</g>
+<g id="shape-214" data-name="椭圆 213">
+<ellipse cx="642.25" cy="385.69" rx="190.55" ry="110.14" fill="#EBEBEB" stroke-width="5.667" stroke="#F0F4FB" stroke-opacity="0"/>
+</g>
+<g id="shape-215" data-name="椭圆 214">
+<ellipse cx="642.25" cy="385.69" rx="190.55" ry="110.14" fill="#666666" fill-opacity="0.15" stroke-width="5.667" stroke="#F0F4FB" stroke-opacity="0"/>
+</g>
+<g id="shape-216" data-name="任意多边形 5">
+<path d="M 640.72 302.2 C 640.53 298.16 643.25 297.57 645.61 298.38 L 706.72 332.01 C 714.92 335.21 712.79 339.44 712.79 347.01 L 711.72 407.65 C 711.72 415.22 711.35 415.15 707.46 415.15 L 645.39 378.76 C 640.83 375.93 641.34 375.68 641.05 364.17 C 640.83 346.24 640.57 320.95 640.72 302.2 Z" fill="url(#ggrad2)" stroke-width="3" stroke="#F0F4FB" stroke-opacity="0" filter="url(#fx3)"/>
+</g>
+<g id="shape-217" data-name="任意多边形 5">
+<path d="M 626.87 309.02 C 626.69 304.98 629.41 304.39 631.76 305.2 L 692.88 338.83 C 701.07 342.03 698.94 346.26 698.94 353.83 L 697.87 414.47 C 697.87 422.04 697.51 421.97 693.61 421.97 L 631.54 385.58 C 626.98 382.75 627.5 382.5 627.2 370.99 C 626.98 353.06 626.73 327.77 626.87 309.02 Z" fill="url(#ggrad3)" stroke-width="3" stroke="#1A3260" stroke-opacity="0.1" filter="url(#fx4)"/>
+</g>
+<g id="shape-218" data-name="任意多边形 5">
+<path d="M 613.03 315.78 C 612.84 311.73 615.56 311.14 617.92 311.95 L 679.03 345.58 C 687.23 348.78 685.1 353.01 685.1 360.58 L 684.03 421.23 C 684.03 428.8 683.66 428.72 679.77 428.72 L 617.7 392.34 C 613.14 389.51 613.65 389.25 613.36 377.74 C 613.14 359.81 612.88 334.52 613.03 315.78 Z" fill="url(#ggrad4)" stroke-width="3" stroke="#1A3260" stroke-opacity="0.1" filter="url(#fx5)"/>
+</g>
+<g id="shape-219" data-name="任意多边形 5">
+<path d="M 599.25 322.53 C 599.07 318.48 601.79 317.9 604.14 318.7 L 665.26 352.34 C 673.45 355.53 671.32 359.76 671.32 367.33 L 670.25 427.98 C 670.25 435.55 669.89 435.48 665.99 435.48 L 603.92 399.09 C 599.36 396.26 599.88 396 599.58 384.5 C 599.36 366.56 599.1 341.27 599.25 322.53 Z" fill="url(#ggrad5)" stroke-width="3" stroke="#1A3260" stroke-opacity="0.1" filter="url(#fx6)"/>
+</g>
+<g id="shape-220" data-name="任意多边形 5">
+<path d="M 585.41 329.28 C 585.22 325.24 587.94 324.65 590.29 325.46 L 651.41 359.09 C 659.61 362.28 657.47 366.51 657.47 374.08 L 656.41 434.73 C 656.41 442.3 656.04 442.23 652.15 442.23 L 590.07 405.84 C 585.52 403.01 586.03 402.75 585.74 391.25 C 585.52 373.31 585.26 348.02 585.41 329.28 Z" fill="url(#ggrad6)" stroke-width="3" stroke="#1A3260" stroke-opacity="0.1" filter="url(#fx7)"/>
+</g>
+<g id="shape-221" data-name="任意多边形 5">
+<path d="M 571.53 336.03 C 571.35 331.99 574.07 331.4 576.42 332.21 L 637.56 365.85 C 645.76 369.05 643.63 373.28 643.63 380.85 L 642.56 441.48 C 642.56 449.05 642.2 448.98 638.3 448.98 L 574.73 411.26 C 571.68 408.17 571.97 406.66 571.68 395.15 C 571.46 377.25 571.38 354.78 571.53 336.03 Z" fill="url(#ggrad7)" stroke-width="3.333" stroke="#1A3260" stroke-opacity="0.05" filter="url(#fx8)"/>
+</g>
+<g id="shape-222" data-name="矩形 221">
+<rect x="538.52" y="500.2" width="207.54" height="62.2" fill="none"/>
+<text x="642.28" y="537.3" text-anchor="middle" xml:space="preserve" font-family="Corbel, sans-serif" font-size="24" fill="#262626" font-weight="bold"><tspan fill="#262626" font-size="24" font-weight="bold">知识系统</tspan></text>
+</g>
+<g id="shape-223" data-name="任意多边形: 形状 51">
+<path d="M 840.65 396.33 C 840.65 380.32 853.63 367.34 869.64 367.34 C 885.65 367.34 898.63 380.32 898.63 396.33 C 898.63 412.34 885.65 425.32 869.64 425.32 C 853.63 425.32 840.65 412.34 840.65 396.33 Z" fill="url(#ggrad8)" stroke="#FFFFFF" stroke-width="1" filter="url(#fx9)"/>
+</g>
+<g id="shape-224" data-name="任意多边形: 形状 42">
+<path d="M 435.53 555.92 C 435.53 539.91 448.51 526.93 464.52 526.93 C 480.53 526.93 493.51 539.91 493.51 555.92 C 493.51 571.93 480.53 584.91 464.52 584.91 C 448.51 584.91 435.53 571.93 435.53 555.92 Z" fill="url(#ggrad9)" stroke="#FFFFFF" stroke-width="1" filter="url(#fx10)"/>
+</g>
+<g id="shape-225" data-name="任意多边形: 形状 44">
+<path d="M 447.81 241.86 C 447.81 225.85 460.79 212.87 476.8 212.87 C 492.81 212.87 505.79 225.85 505.79 241.86 C 505.79 257.87 492.81 270.85 476.8 270.85 C 460.79 270.85 447.81 257.87 447.81 241.86 Z" fill="url(#ggrad10)" stroke="#FFFFFF" stroke-width="1" filter="url(#fx11)"/>
+</g>
+<g id="shape-226" data-name="矩形 225">
+<rect x="102.4" y="571.59" width="280.03" height="117.65" fill="none"/>
+<text x="382.44" y="589.72" text-anchor="end" xml:space="preserve" font-family="Corbel, sans-serif" font-size="21.33" fill="#262626"><tspan fill="#262626" font-size="21.33">培训组整体策略</tspan><tspan fill="#262626" font-size="21.33"> + </tspan><tspan fill="#262626" font-size="21.33">新人</tspan><tspan x="382.44" dy="27.73" fill="#262626" font-size="21.33">Agency</tspan><tspan fill="#262626" font-size="21.33">模块</tspan><tspan fill="#262626" font-size="21.33"> → </tspan><tspan fill="#262626" font-size="21.33">能力的持续复</tspan><tspan x="382.44" dy="27.73" fill="#262626" font-size="21.33">制与迭代</tspan></text>
+</g>
+<g id="shape-227" data-name="直接连接符 226">
+<line x1="153.32" y1="564.92" x2="383.91" y2="564.92" stroke-linecap="butt" stroke="#C2D1EE" stroke-opacity="0" marker-end="url(#marrow1)" fill="#1A3260" stroke-width="1"/>
+</g>
+<g id="shape-228" data-name="直接连接符 227">
+<line x1="153.32" y1="240.83" x2="383.91" y2="240.83" stroke-linecap="butt" stroke="#C2D1EE" stroke-opacity="0" marker-end="url(#marrow2)" fill="#1A3260" stroke-width="1"/>
+</g>
+<g id="shape-229" data-name="矩形 228">
+<rect x="103.87" y="241.58" width="280.03" height="117.65" fill="none"/>
+<text x="383.9" y="259.71" text-anchor="end" xml:space="preserve" font-family="Corbel, sans-serif" font-size="21.33" fill="#262626"><tspan fill="#262626" font-size="21.33">制定</tspan><tspan fill="#262626" font-size="21.33">ROI</tspan><tspan fill="#262626" font-size="21.33">最低执行标准</tspan><tspan fill="#262626" font-size="21.33"> + </tspan><tspan fill="#262626" font-size="21.33">搭建</tspan><tspan x="383.9" dy="27.73" fill="#262626" font-size="21.33">覆盖各主题类型的新申请模板</tspan><tspan x="383.9" dy="27.73" fill="#262626" font-size="21.33"> → </tspan><tspan fill="#262626" font-size="21.33">提效率、保底线</tspan></text>
+</g>
+<g id="shape-230" data-name="矩形 229">
+<rect x="103.32" y="142.77" width="280.58" height="69.02" fill="none"/>
+<text x="383.9" y="203.39" text-anchor="end" xml:space="preserve" font-family="Corbel, sans-serif" font-size="24" fill="#1A3260" font-weight="bold"><tspan fill="#1A3260" font-size="24" font-weight="bold">模板化运营</tspan></text>
+</g>
+<g id="shape-231" data-name="矩形 230">
+<rect x="103.32" y="488.54" width="280.58" height="69.02" fill="none"/>
+<text x="383.9" y="549.16" text-anchor="end" xml:space="preserve" font-family="Corbel, sans-serif" font-size="24" fill="#1A3260" font-weight="bold"><tspan fill="#1A3260" font-size="24" font-weight="bold">培训体系迭代</tspan></text>
+</g>
+<g id="shape-232" data-name="直接连接符 231">
+<line x1="935.58" y1="390.8" x2="1167.61" y2="390.8" stroke-linecap="butt" stroke="#AFC6FF" stroke-opacity="0" marker-start="url(#marrow3)" fill="#1A3260" stroke-width="1"/>
+</g>
+<g id="shape-233" data-name="矩形 232">
+<rect x="935.58" y="393.87" width="277.78" height="117.92" fill="none"/>
+<text x="935.58" y="412.01" text-anchor="start" xml:space="preserve" font-family="Corbel, sans-serif" font-size="21.33" fill="#262626"><tspan fill="#262626" font-size="21.33">构建中国无效案例库</tspan><tspan fill="#262626" font-size="21.33"> → </tspan><tspan fill="#262626" font-size="21.33">经验资产化沉淀</tspan></text>
+</g>
+<g id="shape-234" data-name="矩形 233">
+<rect x="935.58" y="318.24" width="277.78" height="69.22" fill="none"/>
+<text x="935.58" y="379.05" text-anchor="start" xml:space="preserve" font-family="Corbel, sans-serif" font-size="24" fill="#1A3260" font-weight="bold"><tspan fill="#1A3260" font-size="24" font-weight="bold">案例库建设</tspan></text>
+</g>
+<g id="shape-235" data-name="图片 17">
+<image href="assets/image6.png" x="855.38" y="382.07" width="30.93" height="30.93" preserveAspectRatio="none"/>
+</g>
+<g id="shape-236" data-name="图片 6">
+<image href="assets/image8.png" x="461.38" y="226.37" width="30.93" height="30.93" preserveAspectRatio="none"/>
+</g>
+<g id="shape-237" data-name="图片 18">
+<image href="assets/image10.png" x="449.1" y="540.44" width="30.93" height="30.93" preserveAspectRatio="none"/>
+</g>
+<g id="shape-264" data-name="TextBox 1">
+<rect x="67.23" y="28.8" width="192" height="33.6" fill="none"/>
+<text x="76.83" y="56.27" text-anchor="start" xml:space="preserve" font-family="&quot;PingFang SC&quot;, sans-serif" font-size="26.67" fill="#C9A227" font-weight="bold"><tspan fill="#C9A227" font-size="26.67" font-weight="bold">成长主线</tspan></text>
+</g></svg>
