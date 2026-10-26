@@ -58,6 +58,9 @@ class JobCreateBody(BaseModel):
     wechat_config: Optional[str] = None
     output_dir: Optional[str] = None
     async_mode: bool = True
+    open_comment: Optional[bool] = None
+    fans_only_comment: Optional[bool] = None
+    content_source_url: Optional[str] = None
 
 
 class ScheduleItem(BaseModel):
@@ -125,6 +128,9 @@ def _body_to_request(body: JobCreateBody) -> PipelineRequest:
         generate_article=body.generate_article,
         wechat_config=body.wechat_config,
         output_dir=body.output_dir,
+        open_comment=body.open_comment,
+        fans_only_comment=body.fans_only_comment,
+        content_source_url=body.content_source_url,
     )
 
 

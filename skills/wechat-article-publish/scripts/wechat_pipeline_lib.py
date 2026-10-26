@@ -23,7 +23,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from markdown_to_wechat_html import md_to_wechat_html  # noqa: E402
-from wechat_publish import WeChatPublisher, load_config  # noqa: E402
+from wechat_publish import WeChatPublisher, load_config, resolve_draft_options  # noqa: E402
 
 
 class JobStatus(str, Enum):
@@ -47,6 +47,9 @@ class PipelineRequest:
     generate_article: bool = False
     wechat_config: str | None = None
     output_dir: str | None = None
+    open_comment: bool | None = None
+    fans_only_comment: bool | None = None
+    content_source_url: str | None = None
 
 
 @dataclass
@@ -252,7 +255,22 @@ def run_pipeline(req: PipelineRequest, job_id: str | None = None) -> PipelineRes
         thumb_id = publisher.upload_thumb(thumb)
         result.steps.append("upload_thumb")
 
-        media_id = publisher.create_draft(req.title, author, req.digest, body, thumb_id)
+        draft_opts = resolve_draft_options(
+            cfg,
+            open_comment=req.open_comment,
+            fans_only_comment=req.fans_only_comment,
+            content_source_url=req.content_source_url,
+        )
+        media_id = publisher.create_draft(
+            req.title,
+            author,
+            req.digest,
+            body,
+            thumb_id,
+            content_source_url=str(draft_opts["content_source_url"]),
+            open_comment=bool(draft_opts["open_comment"]),
+            fans_only_comment=bool(draft_opts["fans_only_comment"]),
+        )
         result.media_id = media_id
         result.steps.append("create_draft")
 

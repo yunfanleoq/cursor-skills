@@ -1,4 +1,10 @@
 {
+  "6_month_review_mirror": {
+    "summary": "6-Month Review 企业转正汇报镜像模板（保留原 deck 版式与 Logo）",
+    "canvas_format": "ppt169",
+    "page_count": 11,
+    "primary_color": "#1A3260"
+  },
   "中国电信": {
     "summary": "China Telecom related briefings, 政企数字化方案, 转型规划, 内部汇报.",
     "canvas_format": "ppt169",

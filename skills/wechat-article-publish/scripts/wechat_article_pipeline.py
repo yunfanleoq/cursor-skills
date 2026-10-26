@@ -25,6 +25,9 @@ def main():
     parser.add_argument("--author", default="")
     parser.add_argument("--publish", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--open-comment", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--fans-only-comment", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--source-url", default=None)
     args = parser.parse_args()
 
     html_path = args.markdown.with_suffix(".wechat.html")
@@ -44,6 +47,16 @@ def main():
     ]
     if args.publish:
         pub_cmd.append("--publish")
+    if args.open_comment is True:
+        pub_cmd.append("--open-comment")
+    elif args.open_comment is False:
+        pub_cmd.append("--no-open-comment")
+    if args.fans_only_comment is True:
+        pub_cmd.append("--fans-only-comment")
+    elif args.fans_only_comment is False:
+        pub_cmd.append("--no-fans-only-comment")
+    if args.source_url:
+        pub_cmd.extend(["--source-url", args.source_url])
     if args.dry_run:
         pub_cmd.append("--dry-run")
     run(pub_cmd)

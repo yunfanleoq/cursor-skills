@@ -52,7 +52,9 @@ def md_to_wechat_html(md: str, base_dir: Path) -> str:
     def block(text: str) -> str:
         return f'<p style="{P}">{inline(text)}</p>'
 
-    for raw in lines:
+    i = 0
+    while i < len(lines):
+        raw = lines[i]
         line = raw.rstrip()
 
         if line.strip().startswith("```"):
@@ -65,26 +67,32 @@ def md_to_wechat_html(md: str, base_dir: Path) -> str:
                 )
             else:
                 out.append("</pre></section>")
+            i += 1
             continue
         if in_code:
             out.append(html.escape(line) + "\n")
+            i += 1
             continue
 
         if not line.strip():
             flush_list()
+            i += 1
             continue
 
         if line.startswith("# "):
             flush_list()
             out.append(f'<p style="{H1}">{inline(line[2:].strip())}</p>')
+            i += 1
             continue
         if line.startswith("## "):
             flush_list()
             out.append(f'<section style="{H2}">{inline(line[3:].strip())}</section>')
+            i += 1
             continue
         if line.startswith("### "):
             flush_list()
             out.append(f'<p style="{H3}">{inline(line[4:].strip())}</p>')
+            i += 1
             continue
 
         img = re.match(r"!\[(.*?)\]\((.*?)\)", line.strip())
@@ -99,12 +107,20 @@ def md_to_wechat_html(md: str, base_dir: Path) -> str:
                     f'style="max-width:100%;border-radius:8px;display:block;margin:0 auto;" />'
                     f"</p>"
                 )
+            i += 1
             continue
 
         if line.strip().startswith(">"):
             flush_list()
-            quote = line.strip().lstrip(">").strip()
-            out.append(f'<section style="{QUOTE}">{inline(quote)}</section>')
+            quote_lines: list[str] = []
+            while i < len(lines) and lines[i].strip().startswith(">"):
+                text = lines[i].strip().lstrip(">").strip()
+                if text:
+                    quote_lines.append(text)
+                i += 1
+            if quote_lines:
+                inner = "<br/>".join(inline(t) for t in quote_lines)
+                out.append(f'<section style="{QUOTE}">{inner}</section>')
             continue
 
         if line.strip().startswith("|") and "|" in line:
@@ -116,6 +132,7 @@ def md_to_wechat_html(md: str, base_dir: Path) -> str:
                     '<table style="width:100%;border-collapse:collapse;font-size:14px;word-break:break-word;">'
                 )
             if set(line.replace("|", "").strip()) <= {"-", " "}:
+                i += 1
                 continue
             cells = [c.strip() for c in line.strip().strip("|").split("|")]
             row = "".join(
@@ -123,6 +140,7 @@ def md_to_wechat_html(md: str, base_dir: Path) -> str:
                 for c in cells
             )
             out.append(f"<tr>{row}</tr>")
+            i += 1
             continue
         if in_table:
             out.append("</table></section>")
@@ -131,20 +149,24 @@ def md_to_wechat_html(md: str, base_dir: Path) -> str:
         m = re.match(r"^[-*]\s+(.*)", line.strip())
         if m:
             list_buf.append(m.group(1))
+            i += 1
             continue
 
         m = re.match(r"^\d+\.\s+(.*)", line.strip())
         if m:
             list_buf.append(m.group(1))
+            i += 1
             continue
 
         if line.strip() == "---":
             flush_list()
             out.append('<p style="margin:24px 8px;border-top:1px solid #eee;height:0;font-size:0;">&nbsp;</p>')
+            i += 1
             continue
 
         flush_list()
         out.append(block(line.strip()))
+        i += 1
 
     flush_list()
     if in_table:

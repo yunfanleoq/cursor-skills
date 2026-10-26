@@ -1,5 +1,8 @@
 {
   "appid": "wxXXXXXXXXXXXXXXXX",
   "secret": "your_app_secret_here",
-  "author": "作者笔名"
+  "author": "作者笔名",
+  "open_comment": true,
+  "fans_only_comment": false,
+  "content_source_url": ""
 }

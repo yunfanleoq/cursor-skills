@@ -136,16 +136,27 @@ class WeChatPublisher:
             raise RuntimeError(f"上传封面失败 {image_path}: thumb={data}, image={data2}")
         return data2["media_id"]
 
-    def create_draft(self, title: str, author: str, digest: str, content_html: str, thumb_media_id: str) -> str:
+    def create_draft(
+        self,
+        title: str,
+        author: str,
+        digest: str,
+        content_html: str,
+        thumb_media_id: str,
+        *,
+        content_source_url: str = "",
+        open_comment: bool = True,
+        fans_only_comment: bool = False,
+    ) -> str:
         token = self.get_access_token()
         article = {
             "title": truncate_title(title),
             "author": author[:8] if author else "",
             "digest": digest[:120] if digest else "",
             "content": content_html,
-            "content_source_url": "",
-            "need_open_comment": 0,
-            "only_fans_can_comment": 0,
+            "content_source_url": content_source_url[:1024] if content_source_url else "",
+            "need_open_comment": 1 if open_comment else 0,
+            "only_fans_can_comment": 1 if fans_only_comment else 0,
             "thumb_media_id": thumb_media_id,
         }
 
@@ -168,16 +179,45 @@ class WeChatPublisher:
         return data
 
 
+def _cfg_bool(cfg: dict, key: str, default: bool) -> bool:
+    val = cfg.get(key)
+    if val is None:
+        return default
+    if isinstance(val, bool):
+        return val
+    return str(val).lower() in {"1", "true", "yes", "on"}
+
+
+def resolve_draft_options(
+    cfg: dict,
+    *,
+    open_comment: bool | None = None,
+    fans_only_comment: bool | None = None,
+    content_source_url: str | None = None,
+) -> dict[str, bool | str]:
+    return {
+        "open_comment": open_comment if open_comment is not None else _cfg_bool(cfg, "open_comment", True),
+        "fans_only_comment": fans_only_comment
+        if fans_only_comment is not None
+        else _cfg_bool(cfg, "fans_only_comment", False),
+        "content_source_url": content_source_url if content_source_url is not None else cfg.get("content_source_url", ""),
+    }
+
+
 def load_config(config_path: Path | None) -> dict:
     cfg: dict = {}
     env_map = {
         "appid": "WECHAT_APPID",
         "secret": "WECHAT_APPSECRET",
         "author": "WECHAT_AUTHOR",
+        "content_source_url": "WECHAT_SOURCE_URL",
     }
     for k, env in env_map.items():
         if os.environ.get(env):
             cfg[k] = os.environ[env]
+    for k, env in (("open_comment", "WECHAT_OPEN_COMMENT"), ("fans_only_comment", "WECHAT_FANS_ONLY_COMMENT")):
+        if os.environ.get(env) is not None:
+            cfg[k] = _cfg_bool({k: os.environ[env]}, k, False)
 
     if config_path and config_path.exists():
         cfg.update(json.loads(config_path.read_text(encoding="utf-8")))
@@ -195,12 +235,31 @@ def main():
     parser.add_argument("--config", type=Path, default=Path.home() / ".cursor" / "wechat-publish.json")
     parser.add_argument("--publish", action="store_true", help="Submit freepublish after draft")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--open-comment",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="开启评论（默认读配置，未配置时为开启）",
+    )
+    parser.add_argument(
+        "--fans-only-comment",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="仅粉丝可评论（默认读配置，未配置时为关闭）",
+    )
+    parser.add_argument("--source-url", default=None, help="阅读原文链接")
     args = parser.parse_args()
 
-    cfg = load_config(args.config)
+    cfg = load_config(args.config if args.config.exists() else None)
     appid = cfg.get("appid")
     secret = cfg.get("secret")
     author = args.author or cfg.get("author", "")
+    draft_opts = resolve_draft_options(
+        cfg,
+        open_comment=args.open_comment,
+        fans_only_comment=args.fans_only_comment,
+        content_source_url=args.source_url,
+    )
 
     if not appid or not secret:
         print(
@@ -234,8 +293,21 @@ def main():
     thumb_id = publisher.upload_thumb(thumb_path)
     print(f"封面上传成功 thumb_media_id={thumb_id}")
 
-    media_id = publisher.create_draft(args.title, author, args.digest, html, thumb_id)
+    media_id = publisher.create_draft(
+        args.title,
+        author,
+        args.digest,
+        html,
+        thumb_id,
+        content_source_url=str(draft_opts["content_source_url"]),
+        open_comment=bool(draft_opts["open_comment"]),
+        fans_only_comment=bool(draft_opts["fans_only_comment"]),
+    )
     print(f"草稿已创建 media_id={media_id}")
+    if draft_opts["open_comment"]:
+        print("评论: 已开启" + ("（仅粉丝）" if draft_opts["fans_only_comment"] else ""))
+    if draft_opts["content_source_url"]:
+        print(f"阅读原文: {draft_opts['content_source_url']}")
 
     if args.publish:
         result = publisher.publish_draft(media_id)
